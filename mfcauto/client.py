@@ -334,7 +334,6 @@ class Client(EventEmitter):
         camserv = model.bestsession["camserv"]
         camservstr = str(camserv)
         roomId = Client.toroomid(model.uid)
-        roomprefix = "mfc"
         if "ngvideo_servers" in self.server_config and camservstr in self.server_config["ngvideo_servers"]:
             videoserv = self.server_config["ngvideo_servers"][camservstr]
             return "https://{}.myfreecams.com:8444/x-hls/{}/{}/{}/{}/{}_{}_{}.m3u8".format(
@@ -348,12 +347,17 @@ class Client(EventEmitter):
                 roomId
             )
         else:
-            videoserv = "video{}".format(camserv - 500)
+            if model.bestsession.get('phase', None) == 'a':
+                roomprefix = "mfc_a"
+            else:
+                roomprefix = "mfc"
+
+            videoserv = "video{}".format(camserv - 500)  # - 700
             return "https://{}.myfreecams.com:443/NxServer/ngrp:{}_{}.f4v_mobile/playlist.m3u8?nc={}".format(
                 videoserv,
                 roomprefix,
                 roomId,
-                str(random.random()).replace("0.","")
+                str(random.random())  # .replace("0.","")
             )
 
 class SimpleClient(Client):
