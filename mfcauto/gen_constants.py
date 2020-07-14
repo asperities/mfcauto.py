@@ -27,7 +27,7 @@ class STATE(IntEnum):
     #TX_CONFIRMING = 11     # Unused?
     Private = 12            # TX_PVT
     GroupShow = 13          # TX_GRP
-    #TX_RESERVED = 14       # Unused?
+    ClubShow = 14           # Unused? It is now used for club show
     #TX_KILLMODEL = 15      # Unused?
     #C2C_ON = 20            # Unused?
     #C2C_OFF = 21           # Unused?
