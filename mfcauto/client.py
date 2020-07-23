@@ -347,7 +347,7 @@ class Client(EventEmitter):
                 roomId
             )
         else:
-            if model.bestsession.get('phase', None) == 'a':
+            if model.bestsession.get('phase', None) == "a":
                 roomprefix = "mfc_a"
             else:
                 roomprefix = "mfc"
