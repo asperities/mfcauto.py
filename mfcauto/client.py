@@ -353,7 +353,7 @@ class Client(EventEmitter):
                 roomprefix = "mfc"
 
             videoserv = "video{}".format(camserv - 500)  # - 700
-            return "https://{}.myfreecams.com:443/NxServer/ngrp:{}_{}.f4v_mobile/playlist.m3u8?nc={}".format(
+            return "https://{}.myfreecams.com/NxServer/ngrp:{}_{}.f4v_mobile/playlist.m3u8?nc={}".format(
                 videoserv,
                 roomprefix,
                 roomId,
